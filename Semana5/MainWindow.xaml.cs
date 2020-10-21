@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Business;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,42 @@ namespace Semana5
         public MainWindow()
         {
             InitializeComponent();
+        }
+        private void BtnConsultar_Click(object sender, RoutedEventArgs e)
+        {
+            BPedido bPedido = null;
+            try
+            {
+                bPedido = new BPedido();
+                dgvPedido.ItemsSource = bPedido.GetPedidosEntreFechas(Convert.ToDateTime(txtFechaInicio.Text), Convert.ToDateTime(txtFechaFin.Text));                
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Comunicarse con el Administrador");
+            }
+            finally
+            {
+                bPedido = null;
+            }
+        }
+
+        private void BtnDetallePedido_Click(object sender, RoutedEventArgs e)
+        {
+            BDetallePedido bDetallePedido = null;
+            try
+            {
+                bDetallePedido = new BDetallePedido();
+                dgvDetallePedido.ItemsSource = bDetallePedido.GetDetallePedidosPorId(Convert.ToInt32(txtIdPedido.Text));
+                txtTotal.Text = Convert.ToString(bDetallePedido.GetDetalleTotalPorId(Convert.ToInt32(txtIdPedido.Text)));
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Comunicarse con el admin");
+            }
+            finally
+            {
+                bDetallePedido = null;
+            }
         }
     }
 }

@@ -19,15 +19,15 @@ namespace Data
 
             try
             {
-                comandText = "USP_FECHAFECHA";
+                comandText = "PC_ListaPedidos";
                 parameters = new SqlParameter[2];
-                parameters[0] = new SqlParameter("@Fec1", SqlDbType.DateTime);
+                parameters[0] = new SqlParameter("@FechaInicio", SqlDbType.DateTime);
                 parameters[0].Value = pedido.FechaInicio;
-                parameters[1] = new SqlParameter("@Fec2", SqlDbType.DateTime);
+                parameters[1] = new SqlParameter("@FechaEnvio", SqlDbType.DateTime);
                 parameters[1].Value = pedido.FechaFin;
                 pedidos = new List<Pedido>();
 
-                using (SqlDataReader reader = SqlHelper.ExecuteReader(SqlHelper.Connection, "USP_FECHAFECHA",
+                using (SqlDataReader reader = SqlHelper.ExecuteReader(SqlHelper.Connection, "PC_ListaPedidos",
                     CommandType.StoredProcedure, parameters))
                 {
                     while (reader.Read())

@@ -10,7 +10,7 @@ namespace Data
 {
     static class SqlHelper
     {
-        public static string Connection { get; } = "Data Source=HUGO-PC\\MSSQLSERVER2014;" +
+        public static string Connection { get; } = "Data Source=DESKTOP-GS0HQDQ\\SQLEXPRESS2017;" +
                                                    "Initial Catalog=Neptuno;Integrated Security=true";
         /// <summary> 
         /// Set the connection, command, and then execute the command with non query. 

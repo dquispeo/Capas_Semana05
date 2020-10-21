@@ -8,10 +8,11 @@ namespace Entity
 {
     public class DetallePedido
     {
-        public Pedido Pedido { get; set; }
-        public int IdProducto { get; set; }
-        public int Cantidad { get; set; }
-        public decimal PrecioUnidad { get; set; }
-        public decimal Descuento { get; set; }
+        //public Pedido Pedido { get; set; }
+        public int idpedido { get; set; }
+        public int idproducto { get; set; }
+        public int cantidad { get; set; }
+        public decimal preciounidad { get; set; }
+        public decimal descuento { get; set; }
     }
 }
